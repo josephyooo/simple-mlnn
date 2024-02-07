@@ -3,13 +3,15 @@ import numpy as np
 class MLNN:
     def __init__(self, n, h=0.1, W=None, b=None, padding=1e-10):
         # n: 1 x L+1 (L layers) array of number of neurons in each layer
+        # h: learning rate
         # W: 1 x L (populated by n_n x n_p arrays)
         # b: 1 x L (populated by n_n x 1 arrays, broadcast to n_n x m)
+        # padding: see Y_hat
 
         self.n = n
         self.h = h
         self.L = n.size - 1
-        self.padding = padding # see Y_hat
+        self.padding = padding
 
         # init W and b
         self.W = W if W else self.generate_W(n)
