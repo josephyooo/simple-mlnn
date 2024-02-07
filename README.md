@@ -1,8 +1,8 @@
 # Usage
 An example is given in `example.py`.
 # Glossary
-$X\in\mathbb{R}^{n_x x m}$
-$Y\in\mathbb{R}^{1 x m}$
+$X\in\mathbb{R}^{n_x \times m}$
+$Y\in\mathbb{R}^{1 \times m}$
 $h$ denotes the learning rate of the network.
 # Design
 I decided against support for variable layer activations (anything but sigmoid), multilabel classification, and other loss functions because my gradient descent computation depends on the derivatives of the sigmoid and logistic loss functions. 
