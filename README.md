@@ -3,7 +3,7 @@ An example is given in `example.py`.
 # Glossary
 $X\in\mathbb{R}^{n_x \times m}$
 
-$Y\in\mathbb{R}^{1 \timesg m}$
+$Y\in\mathbb{R}^{1 \times m}$
 
 $h$ denotes the learning rate of the network.
 # Design
