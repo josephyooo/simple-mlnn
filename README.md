@@ -45,6 +45,6 @@ $Y\in\mathbb{R}^{1 \times m}$
 ## Design
 I decided against support for variable layer activations (anything but sigmoid), multilabel classification, and other loss functions because my gradient descent computation depends on the derivatives of the sigmoid and logistic loss functions. 
 ## Techniques
-- Sigmoid activation: $A=\sigmoid (Z)=\frac{1}{1+e^{-Z}}, \frac{dA}{dZ}=A(1-A)$
+- Sigmoid activation: $A=\sigma(Z)=\frac{1}{1+e^{-Z}}, \frac{dA}{dZ}=A(1-A)$
 - Logistic loss: $L(a, y)=-(yloga+(1-y)log(1-a))$
 - Backpropogation of this network currently utilizes batch (not mini-batch) gradient descent. The first two pages of the following document contains relevant gradients: [link](https://cs230.stanford.edu/fall2018/section_files/section3_soln.pdf)
