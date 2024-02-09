@@ -30,7 +30,7 @@ class MLNN:
             n_n = n[l+1]
             # W^[l] \in R^{# units in next layer x # units in previous layer}
             # W[l] = np.random.uniform(-1, 1, (n_n, n_p)) # uniform initialization
-            W[l] = np.random.randn(n_n, n_p) * np.sqrt(2/(n_p+n_n)) # bengio initialization
+            W[l] = np.random.randn(n_n, n_p) * np.sqrt(1/(n_p)) # bengio initialization
         return W
     
     def generate_b(self, n):

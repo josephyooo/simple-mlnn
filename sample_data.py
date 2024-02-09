@@ -31,7 +31,7 @@ oor = {
 ghw = read_csv("./data/500_Person_Gender_Height_Weight_Index.csv")
 X = ghw.loc[:, ["Height", "Weight", "Index"]]
 # normalization
-print(X.mean(), '\n', X.std())
+# print(X.mean(), '\n', X.std())
 X = X-X.mean()
 X = X/X.std()
 Y = ghw.loc[:, "Gender"].apply(lambda l : 0 if l == "Male" else 1)

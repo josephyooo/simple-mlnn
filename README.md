@@ -1,4 +1,4 @@
-# simple
+# simple-mlnn
 A simple binary classification MLNN.
 
 ## Usage
