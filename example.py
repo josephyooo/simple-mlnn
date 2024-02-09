@@ -1,3 +1,5 @@
+from timeit import default_timer as timer
+
 import numpy as np
 
 from mlnn import MLNN
@@ -10,7 +12,7 @@ X = X.T
 Y = Y.reshape(1, -1)
 
 # provide hidden layers only, input and output sizes are inferred
-layers = np.array([2, 2], dtype=int)
+layers = np.array([8, 4], dtype=int)
 n_x = X.shape[0]
 n_y = Y.shape[0]
 layers = np.insert(layers, 0, n_x)
@@ -20,10 +22,13 @@ net = MLNN(layers, h=1)
 
 epochs = int(1e4)
 
+start = timer()
 net.fit(X, Y, epochs)
+elapsed = timer() - start
+
 a = net.Y_hat(X)
-e = net.loss(Y, a)
-print(e)
+err = net.loss(Y, a)
+print(f'{err=}\n{round(elapsed, 3)}s elapsed')
 
 # show progress
 """

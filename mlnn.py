@@ -29,7 +29,8 @@ class MLNN:
             n_p = n[l]
             n_n = n[l+1]
             # W^[l] \in R^{# units in next layer x # units in previous layer}
-            W[l] = np.random.uniform(-1, 1, (n_n, n_p))
+            # W[l] = np.random.uniform(-1, 1, (n_n, n_p)) # uniform initialization
+            W[l] = np.random.randn(n_n, n_p) * np.sqrt(2/(n_p+n_n)) # bengio initialization
         return W
     
     def generate_b(self, n):
@@ -89,10 +90,11 @@ class MLNN:
         self.Y_hat(X) 
 
         def get_dW(l):
-            if l == -1:
+            A_l = l-1
+            if A_l == -1:
                 a = X
             else:
-                a = A[l-1]
+                a = A[A_l]
             a = np.transpose(a)
             r = np.matmul(dZ_l, a)
             return r
@@ -107,7 +109,7 @@ class MLNN:
         for l in range(self.L-2, -1, -1):
             dA_l = np.matmul(np.transpose(W[l+1]), dZ_l)
             dZ_l = dA_l*self.activation(self.Z[l])*(1-self.activation(self.Z[l]))
-            dW_l = get_dW(l-1)
+            dW_l = get_dW(l)
             db_l = np.matmul(dZ_l, np.ones(m))
             self.update_network(dW_l, db_l, l)
 

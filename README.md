@@ -1,4 +1,7 @@
-# Usage
+# simple
+A simple binary classification MLNN.
+
+## Usage
 Example:
 ```python
 import numpy as np
@@ -35,12 +38,12 @@ Sample output:
 ```
 
 An extended example is given in `example.py`.
-# Glossary
+## Glossary
 $X\in\mathbb{R}^{n_x \times m}$
 
 $Y\in\mathbb{R}^{1 \times m}$
-# Design
+## Design
 I decided against support for variable layer activations (anything but sigmoid), multilabel classification, and other loss functions because my gradient descent computation depends on the derivatives of the sigmoid and logistic loss functions. 
-# Backpropogation
+## Backpropogation
 Backpropogation of this network utilizes batch (not mini-batch) gradient descent. However, stochastic and mini-batch gradient descent could be implemented.
-My implementation of gradient descent was based on my class notes but the first two pages of the following document contains the equations necessary: https://cs230.stanford.edu/fall2018/section_files/section3_soln.pdf
+My implementation of gradient descent was based on my class notes but the first two pages of the following document contains the equations necessary: [link](https://cs230.stanford.edu/fall2018/section_files/section3_soln.pdf)
